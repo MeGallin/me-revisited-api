@@ -9,6 +9,7 @@ app.use(cors());
 
 //Routes
 app.use('/api/', require('./routes/PageHitsRoutes'));
+app.use('/api/', require('./routes/ContactFormRoutes'));
 
 const PORT = process.env.PORT || 5000;
 //Connect to Mongo
