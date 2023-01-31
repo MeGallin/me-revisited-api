@@ -12,6 +12,7 @@ app.use('/api/', require('./routes/PageHitsRoutes'));
 app.use('/api/', require('./routes/ContactFormRoutes'));
 app.use('/api/', require('./routes/UserRoutes'));
 app.use('/api/', require('./routes/EmailConfirmationLinkRoute'));
+app.use('/api/', require('./routes/AdminRoutes'));
 
 const PORT = process.env.PORT || 5000;
 //Connect to Mongo
