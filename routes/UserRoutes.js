@@ -8,6 +8,7 @@ const {
   userUpdateAdminDetails,
   forgotPassword,
   resetPassword,
+  userDownloadCounter,
 } = require('../controllers/UserController');
 
 const { protect } = require('../middleWare/AuthMiddleWare');
@@ -19,5 +20,6 @@ router.route('/user-details').get(protect, getUserDetails);
 router.route('/user/:id').put(protect, userUpdateAdminDetails);
 router.route('/forgot-password').post(forgotPassword);
 router.route('/reset-password/:token').put(resetPassword);
+router.route('/user-download-cv/:id').post(protect, userDownloadCounter);
 
 module.exports = router;
