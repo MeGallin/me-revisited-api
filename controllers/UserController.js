@@ -24,6 +24,7 @@ exports.register = async (req, res, next) => {
       cloudinaryId: '12345',
       ipAddress: ipAddress,
       loginCounter: 0,
+      downloadCounter: 0,
       registeredWithGoogle: false,
     });
 
@@ -223,4 +224,16 @@ exports.resetPassword = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+// @description: USER Download CV Counter
+// @route: PUT /api/user-download-cv/:id
+// @access: Private
+exports.userDownloadCounter = async (req, res, next) => {
+  const user = await User.findById(req.params.id);
+  try {
+    if (!user) return next(new ErrorResponse('User Not found', 400));
+    user.downloadCounter = user.downloadCounter + 1;
+    await user.save();
+    res.status(200).json({ success: true });
+  } catch (error) {}
 };

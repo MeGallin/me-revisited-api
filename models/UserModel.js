@@ -50,6 +50,10 @@ const UserSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+    downloadCounter: {
+      type: Number,
+      default: 0,
+    },
     registeredWithGoogle: {
       type: Boolean,
       required: true,
