@@ -9,6 +9,7 @@ app.use(cors());
 
 //Routes
 app.use('/api/', require('./routes/PageHitsRoutes'));
+app.use('/api/', require('./routes/AnalyticsRoutes'));
 app.use('/api/', require('./routes/ContactFormRoutes'));
 app.use('/api/', require('./routes/UserRoutes'));
 app.use('/api/', require('./routes/EmailConfirmationLinkRoute'));
