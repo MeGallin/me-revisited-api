@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const { protect } = require('../middleWare/authMiddleWare');
+const { protect, admin } = require('../middleWare/AuthMiddleWare');
 
 const router = express.Router();
 
@@ -41,6 +41,12 @@ const uploader = async (req, res, next) => {
   }
 };
 // NB!!! This name 'file' must match the name attribute in the upload form.
-router.post('/admin/file-upload', upload.single('file'), protect, uploader);
+router.post(
+  '/admin/file-upload',
+  upload.single('file'),
+  protect,
+  admin,
+  uploader,
+);
 
 module.exports = router;
