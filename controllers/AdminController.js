@@ -7,7 +7,9 @@ const ErrorResponse = require('../utils/errorResponse');
 // @route: GET /api/admin/user-details
 // @access: Admin and Private
 exports.adminGetAllUsers = async (req, res, next) => {
-  const users = await User.find();
+  const users = await User.find().sort({
+    createdAt: -1,
+  });
   try {
     if (!users) return next(new ErrorResponse('Nothing could be found', 500));
     res.status(200).json({ success: true, users });
@@ -19,7 +21,9 @@ exports.adminGetAllUsers = async (req, res, next) => {
 // @route: GET /api/admin/received-emails
 // @access: Admin and Private
 exports.adminReceivedEmails = async (req, res, next) => {
-  const emails = await ContactFormDetails.find();
+  const emails = await ContactFormDetails.find().sort({
+    createdAt: -1,
+  });
   try {
     if (!emails) return next(new ErrorResponse('Nothing could be found', 500));
     res.status(200).json({ success: true, emails });
@@ -31,7 +35,9 @@ exports.adminReceivedEmails = async (req, res, next) => {
 // @route: GET /api/admin/ip-addresses
 // @access: Admin and Private
 exports.adminGetIpAddress = async (req, res, next) => {
-  const ipAddress = await PageHits.find();
+  const ipAddress = await PageHits.find().sort({
+    createdAt: -1,
+  });
   try {
     if (!ipAddress)
       return next(new ErrorResponse('Nothing could be found', 500));

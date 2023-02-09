@@ -24,10 +24,12 @@ exports.analytics = async (req, res, next) => {
   }
 };
 // @description: Get All the Analytics Data
-// @route: POST /api/analytics-data
+// @route: GET /api/analytics-data
 // @access: Private and Admin
 exports.analyticsData = async (req, res, next) => {
-  const analyticsData = await Analytics.find();
+  const analyticsData = await Analytics.find().sort({
+    createdAt: -1,
+  });
   try {
     if (!analyticsData)
       return next(new ErrorResponse('No data to submit', 500));
@@ -37,7 +39,7 @@ exports.analyticsData = async (req, res, next) => {
   }
 };
 // @description: Delete select Analytics Data
-// @route: POST /api/analytics-data-delete/:id
+// @route: DELETE /api/analytics-data-delete/:id
 // @access: Private and Admin
 exports.analyticsDataDelete = async (req, res, next) => {
   const record = await Analytics.findById(req.params.id);

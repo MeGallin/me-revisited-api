@@ -153,7 +153,9 @@ exports.userUpdateAdminDetails = async (req, res, next) => {
 // @route: GET /api/users/user
 // @access: PRIVATE
 exports.getUserDetails = async (req, res, next) => {
-  const userDetails = await User.findById(req.user.id);
+  const userDetails = await User.findById(req.user.id).sort({
+    createdAt: -1,
+  });
   try {
     if (!userDetails)
       return next(new ErrorResponse('Invalid, no user details found'), 404);
