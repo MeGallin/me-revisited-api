@@ -2,8 +2,11 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const { protect, admin } = require('../middleWare/AuthMiddleWare');
-
 const router = express.Router();
+const {
+  readMyNews,
+  readPresently,
+} = require('../controllers/FileUploaderController');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
@@ -48,5 +51,7 @@ router.post(
   admin,
   uploader,
 );
+router.route('/my-news').get(readMyNews);
+router.route('/presently').get(readPresently);
 
 module.exports = router;
