@@ -32,3 +32,18 @@ exports.readPresently = async (req, res, next) => {
     next(error);
   }
 };
+// @description: Get the contents of the recent past text file
+// @route: GET /api/recent-past
+// @access: PUBLIC
+exports.readRecentPast = async (req, res, next) => {
+  try {
+    const data = await fsPromises.readFile(
+      path.join(__dirname, '../' + 'routes/' + 'upload', 'recent_past.txt'),
+      'utf8',
+    );
+
+    res.status(200).json({ success: true, data });
+  } catch (error) {
+    next(error);
+  }
+};
