@@ -1,2 +1,5 @@
 <p>I am currently working on an app that will display various sports news and updates. At this point in time I have focused mainly on F1, motoGP and Rugby </p>
-<p>I used NODEJS to to do the heavy lifting to....</p>
+<p>I used NODEJS and EXPRESS to create the endpoint and REACTJS on the frontend.</p>
+<p>Keep an eye open for the completed project.</p>
+<p>It will be an amazing source of sports news and updates.</p>
+<p>I have always been passionate about sports and I'm excited to put my skills to use in creating this app. I am confident that my knowledge of coding and my enthusiasm for sports will make this project a success.</p>

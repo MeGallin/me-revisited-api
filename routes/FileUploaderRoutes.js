@@ -6,6 +6,7 @@ const router = express.Router();
 const {
   readMyNews,
   readPresently,
+  readRecentPast,
 } = require('../controllers/FileUploaderController');
 
 const storage = multer.diskStorage({
@@ -53,5 +54,6 @@ router.post(
 );
 router.route('/my-news').get(readMyNews);
 router.route('/presently').get(readPresently);
+router.route('/recent-past').get(readRecentPast);
 
 module.exports = router;
